@@ -12,14 +12,20 @@ def main(argv):
     print file_path
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((servername, PORT))
-    receiveFile(file_path, client_socket)
 
+    client_socket.send(file_path)
+    status = client_socket.recv(BUFSIZE)
+    if status == "OK":
+        receiveFile(file_path, client_socket)
+    else:
+        print "Server could not locate file. Closing connection."
     client_socket.close()
+
 def receiveFile(file_path,  conn):
     l = re.split('[/]+', file_path)
     file_name = l[len(l) - 1]
     file = open(file_name,"wb")
-    conn.send(file_path)
+
     while True:
         data = conn.recv(BUFSIZE)
         if not data:

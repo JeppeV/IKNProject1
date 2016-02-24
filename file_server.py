@@ -10,6 +10,7 @@ def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((HOST, PORT))
     server_socket.listen(1)
+    print "Server awaiting incoming connection..."
 
     while 1:
         connection_socket, address = server_socket.accept()
@@ -18,8 +19,12 @@ def main():
         file_name = file_name.lower()
         file_size = Lib.check_File_Exists(file_name)
         if file_size != 0:
-            print "Size is: ", file_size
+            print "Attempting to send file of size:", file_size
+            connection_socket.sendall("OK")
             send_file(file_name, 1, connection_socket)
+        else:
+            print "File not found"
+            connection_socket.sendall("FNF")
         connection_socket.close()
 
 
