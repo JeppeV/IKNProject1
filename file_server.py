@@ -13,15 +13,17 @@ def main():
 
     while 1:
         connection_socket, address = server_socket.accept()
+        print "Connection with client established"
         file_name = connection_socket.recv(BUFSIZE)
-
         file_name = file_name.lower()
         file_size = Lib.check_File_Exists(file_name)
         if file_size != 0:
+            print "Size is: ", file_size
             send_file(file_name, 1, connection_socket)
+        connection_socket.close()
 
 
-    connection_socket.close()
+
 
 def send_file(file_name,  file_size,  conn):
     file = open(file_name, "rb")
