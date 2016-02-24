@@ -19,7 +19,7 @@ def main():
         file_name = file_name.lower()
         file_size = Lib.check_File_Exists(file_name)
         if file_size != 0:
-            print "Attempting to send file of size:", file_size
+            print "Sending file of size:", file_size
             send_file(file_name, 1, connection_socket)
         else:
             print "File not found"

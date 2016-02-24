@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24a7ae30-a332-494e-abd4-c59d90d8a6f8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_client.py" afterPath="$PROJECT_DIR$/file_client.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_server.py" afterPath="$PROJECT_DIR$/file_server.py" />
     </list>
     <ignored path="IKNProject1.iws" />
