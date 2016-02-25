@@ -20,12 +20,12 @@ def receiveFile(file_path,  conn):
     l = re.split('[/]+', file_path)
     file_name = l[len(l) - 1]
     file = open(file_name,"wb")
-
     while True:
         data = conn.recv(BUFSIZE)
         if not data:
             break
         file.write(data)
+    file.close()
 
 
 if __name__ == "__main__":

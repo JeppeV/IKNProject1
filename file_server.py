@@ -28,10 +28,11 @@ def main():
 
 
 
-def send_file(file_name,  file_size,  conn):
+def send_file(file_name, conn):
     file = open(file_name, "rb")
     for piece in read_in_chunks(file):
         conn.sendall(piece)
+    file.close()
 
 
 def read_in_chunks(file_object):
