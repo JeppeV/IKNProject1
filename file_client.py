@@ -1,6 +1,7 @@
 import sys
 import socket
 import re
+from lib import Lib
 
 
 PORT = 9000
@@ -12,7 +13,10 @@ def main(argv):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((servername, PORT))
     client_socket.send(file_path)
-    receiveFile(file_path, client_socket)
+    server_status = Lib.readTextTCP(client_socket)
+    print("Server status:", server_status)
+    if server_status == "OK":
+        receiveFile(file_path, client_socket)
     client_socket.close()
 
 def receiveFile(file_path,  conn):

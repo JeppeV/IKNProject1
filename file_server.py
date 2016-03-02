@@ -18,11 +18,15 @@ def main():
         file_name = connection_socket.recv(BUFSIZE)
         file_name = file_name.lower()
         file_size = Lib.check_File_Exists(file_name)
+
         if file_size != 0:
+            Lib.writeTextTCP("OK", connection_socket)
             print("Sending file of size:", file_size)
             send_file(file_name, connection_socket)
         else:
+            Lib.writeTextTCP("ERR", connection_socket)
             print("File not found")
+
         connection_socket.close()
 
 
