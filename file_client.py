@@ -7,9 +7,8 @@ PORT = 9000
 BUFSIZE = 1000
 
 def main(argv):
-    servername = argv[0];
-    file_path = argv[1];
-    print file_path
+    servername = argv[0]
+    file_path = argv[1]
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((servername, PORT))
     client_socket.send(file_path)
