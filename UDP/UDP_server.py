@@ -1,5 +1,4 @@
 import socket
-from lib import Lib
 
 HOST = ''
 PORT = 9000

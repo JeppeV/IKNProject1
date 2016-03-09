@@ -1,7 +1,8 @@
-import sys
-import socket
 import re
-from lib import Lib
+import socket
+import sys
+
+from UDP.lib import Lib
 
 PORT = 9000
 BUFSIZE = 1000
