@@ -3,7 +3,6 @@ import socket
 import re
 from lib import Lib
 
-
 PORT = 9000
 BUFSIZE = 1000
 
@@ -29,7 +28,6 @@ def receiveFile(file_path,  conn):
             break
         file.write(data)
     file.close()
-
 
 if __name__ == "__main__":
     main(sys.argv[1:])
