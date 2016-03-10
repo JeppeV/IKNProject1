@@ -8,7 +8,10 @@ def main(argv):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     client_socket.sendto(command, (servername, PORT))
     output, server_address = client_socket.recvfrom(1000)
-    print "You specified the command ", command, " and received: ", output
+    if output == "ERR":
+       print "The command was not recognized"
+    else:	
+       print "You specified the command ", command, " and received: \n", output
     client_socket.close()
 
 
