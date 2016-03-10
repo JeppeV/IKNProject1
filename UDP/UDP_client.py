@@ -9,9 +9,9 @@ def main(argv):
     client_socket.sendto(command, (servername, PORT))
     output, server_address = client_socket.recvfrom(1000)
     if output == "ERR":
-        print "The command was not recognized"
+        print("The command was not recognized")
     else:	
-        print "You specified the command ", command, " and received: \n", output
+        print("You specified the command ", command, " and received: \n", output)
     client_socket.close()
 
 
